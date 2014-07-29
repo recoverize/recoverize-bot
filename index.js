@@ -21,7 +21,9 @@ db.get('tweet_count', function(err, value) {
 // Scheduled tweets
 later.date.localTime();
 
-var morningTweet = later.parse.text('every 2 min');
+console.log(later.date.localTime());
+
+var morningTweet = later.parse.text('at 08:30am every day');
 later.setInterval(function() {
     db.get('tweet_count', function (err, value) {
         twit.post('statuses/update', { status: jftquotes[value] }, function (err, data, response) {
@@ -30,7 +32,7 @@ later.setInterval(function() {
     });
 }, morningTweet);
 
-var eveningTweet = later.parse.text('at 06:30pm every day');
+var eveningTweet = later.parse.text('every 2 min');
 later.setInterval(function() {
     db.get('tweet_count', function (err, value) {
         twit.post('statuses/update', { status: bbquotes[value] }, function (err, data, response) {
