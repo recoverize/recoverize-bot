@@ -1,6 +1,13 @@
 var levelup = require('levelup');
 var twit = require('./twitter/index').twitter;
 var later = require('later');
+var mongodb = require('mongodb'),
+    MongoClient = mongodb.MongoClient;
+
+console.log(process.env.MONGOHQ_URL);
+//MongoClient.connect(process.env.MONGOHQ_URL, function(err, dbs) {
+//    var collection = dbs.collection('test');
+//})
 
 // json content
 var jftquotes = require('./content/jftquotes');
