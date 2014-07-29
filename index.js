@@ -18,7 +18,7 @@ console.log('trolling twitter....');
 // Scheduled tweets
 later.date.localTime();
 
-var morningTweet = later.parse.text('at 08:30am every day');
+var morningTweet = later.parse.text('every 2 min');
 later.setInterval(function() {
     db.get('tweet_count', function (err, value) {
         twit.post('statuses/update', { status: jftquotes[value] }, function (err, data, response) {
