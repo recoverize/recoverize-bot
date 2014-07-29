@@ -14,6 +14,9 @@ var db = levelup('./data');
 
 console.log('trolling twitter....');
 
+db.get('tweet_count', function(err, value) {
+    console.log(value);
+});
 
 // Scheduled tweets
 later.date.localTime();
