@@ -12,6 +12,8 @@ var bbquotes = require('./content/bbquotes');
 var db = levelup('./data');
 
 
+console.log('trolling twitter....');
+
 
 // Scheduled tweets
 later.date.localTime();
@@ -20,7 +22,7 @@ var morningTweet = later.parse.text('at 08:30am every day');
 later.setInterval(function() {
     db.get('tweet_count', function (err, value) {
         twit.post('statuses/update', { status: jftquotes[value] }, function (err, data, response) {
-            console.log(data);
+            console.log('tweet sent!');
         });
     });
 }, morningTweet);
@@ -29,7 +31,7 @@ var eveningTweet = later.parse.text('at 06:30pm every day');
 later.setInterval(function() {
     db.get('tweet_count', function (err, value) {
         twit.post('statuses/update', { status: bbquotes[value] }, function (err, data, response) {
-            console.log(data);
+            console.log('tweet sent!');
         });
 
         if (isNaN(value)) {
@@ -53,6 +55,8 @@ later.setInterval(function() {
 // new follows
 var me = twit.stream('user', { track: '@recoverize', language: 'en' });
 me.on('follow', function (follower) {
+
+    console.log('new follower!');
 
     db.get('new_follows', function (err, value) {
         if (isNaN(value)) {
