@@ -6,3 +6,10 @@ exports.twitter = new Twit({
     access_token: '1733468634-SAtGbzuQJHgJEonioZzffzxI6Sxj4V7X2cm3mkV',
     access_token_secret: 'PFB3r4p6x1g0CDOcg6RoACn0XYSLa3ZFqpH0kWHIj2yW8'
 });
+
+// Called from index to monitor for events
+var account = require('./events/account');
+
+
+// Load scheduled events
+var tweets = require('./schedule/tweets');

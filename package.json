@@ -2,7 +2,7 @@
   "name": "recoverize-bot",
   "version": "0.1.0",
   "description": "a twitter bot",
-  "main": "index.js",
+  "main": "mongo.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,9 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "later": "^1.1.6",
-    "leveldown": "^0.10.2",
-    "levelup": "^0.18.6",
-    "mongodb": "^1.4.7",
+    "mongoose": "^3.8.14",
     "twit": "^1.1.18"
   }
 }
