@@ -1,1 +1,1 @@
-app: node mongo.js
+app: node index.js
