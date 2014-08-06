@@ -5,8 +5,8 @@ var twit = require('../index').twitter;
 
 
 // Send out #justfortoday tweet every morning
-var jftSchedule = later.parse.text('at 1:30 pm');
-var jftTweet = later.setInterval(function() {
+var jftSchedule = later.parse.text('at 12:00 pm');
+later.setInterval(function() {
 
     twitterStats.findById('53deeb016047e6f37d98b166', function(err, stats) {
         if (err) {
@@ -16,7 +16,7 @@ var jftTweet = later.setInterval(function() {
         var quotes = require('../../content/jftquotes');
 
         twit.post('statuses/update', { status: quotes[stats.tweetDay] }, function(err, data, response) {
-            console.log(err);
+            console.log('#justfortoday tweet sent.');
         });
 
     });
@@ -24,9 +24,23 @@ var jftTweet = later.setInterval(function() {
 }, jftSchedule);
 
 
+// Send out daily promo tweet
+var promoSchedule = later.parse.text('at 1:30 pm');
+later.setInterval(function() {
+
+    var promo = require('../../content/promos');
+    var promoNumber =  Math.random() * (promo.length - 1) + 1;
+
+    twit.post('statuses/update', { status: promo[promoNumber + 1] }, function(err, data, response) {
+        console.log('Daily promo tweet sent.');
+    });
+
+}, promoSchedule);
+
+
 // Send out #bigbook tweet every evening
-var bbqSchedule = later.parse.text('at 1:00 am');
-var bbqTweet = later.setInterval(function() {
+var bbqSchedule = later.parse.text('at 11:30 pm');
+later.setInterval(function() {
 
     twitterStats.findById('53deeb016047e6f37d98b166', function(err, stats) {
         if (err) {
@@ -36,7 +50,7 @@ var bbqTweet = later.setInterval(function() {
         var quotes = require('../../content/bbquotes');
 
         twit.post('statuses/update', { status: quotes[stats.tweetDay] }, function(err, data, response) {
-            console.log(err);
+            console.log('Evening #bigbook tweet sent.');
         });
 
         stats.tweetDay += 1;

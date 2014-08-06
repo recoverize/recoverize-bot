@@ -8,6 +8,7 @@ me.on('follow', function(follower) {
     if (follower.source.screen_name == 'recoverize') {
         return;
     }
+    console.log(follower);
     console.log(new Date + ': ' + follower.source.screen_name + ' now follows you.')
 
     twitterStats.findById('53deeb016047e6f37d98b166', function(err, stats) {
