@@ -1,18 +1,16 @@
-//var mongoose = require('mongoose');
-//
-//var twitterFollowerSchema = mongoose.Schema({
-//    newFollowers: Number,
-//    totalFollowers: Number,
-//    newUnfollowers: Number,
-//    totalUnfollowers: Number,
-//    tweetSent: Number,
-//    retweets: Number,
-//    favorites: Number,
-//    retweeted: Number,
-//    favorited: Number,
-//    onlineSince: Number,
-//    tweetDay : Number
-//});
-//
-//twitterStats = mongoose.model('twitterStats', twitterStatsSchema);
-//module.exports = twitterStats;
+var mongoose = require('mongoose');
+
+var twitterFollowerSchema = mongoose.Schema({
+    followedAt: { type: Date, default: Date.now },
+    name: String,
+    screenName: String,
+    followersCount: Number,
+    statusesCount: Number,
+    location: String,
+    url: String,
+    description: String,
+    following: Boolean
+});
+
+twitterFollower = mongoose.model('twitterFollower', twitterFollowerSchema);
+module.exports = twitterFollower;

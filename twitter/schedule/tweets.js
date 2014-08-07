@@ -28,10 +28,10 @@ later.setInterval(function() {
 var promoSchedule = later.parse.text('at 1:30 pm');
 later.setInterval(function() {
 
-    var promo = require('../../content/promos');
-    var promoNumber =  Math.random() * (promo.length - 1) + 1;
+    var promos = require('../../content/promos');
+    var promoNumber =  Math.floor(Math.random() * (promos.length - 1) + 1);
 
-    twit.post('statuses/update', { status: promo[promoNumber + 1] }, function(err, data, response) {
+    twit.post('statuses/update', { status: promos[promoNumber] }, function(err, data, response) {
         console.log('Daily promo tweet sent.');
     });
 

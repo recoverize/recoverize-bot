@@ -1,4 +1,5 @@
-var Twit = require('twit');
+var Twit = require('twit'),
+    later = require('later');
 
 exports.twitter = new Twit({
     consumer_key: 'tJgQbMgfNIedrrYaDD0CBTQC1',
@@ -13,3 +14,11 @@ var account = require('./events/account');
 
 // Load scheduled events
 var tweets = require('./schedule/tweets');
+
+// Do automated interactions
+var tags = ['#justfortoday', '#12steps', '#bigbook', '#dailyreflections', '#sobriety', '#xa', '#affirmation'];
+
+var rt = require('./ai/retweet');
+
+var rtSchedule = later.parse.text('every 8 hours');
+//later.setInterval(rt.retweet(tags), rtSchedule);
