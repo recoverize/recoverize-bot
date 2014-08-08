@@ -25,7 +25,11 @@ exports.retweet = function(hashtags) {
 
         var randomRetweet = Math.floor(Math.random() * (tweetList.length - 0) + 0);
         twit.post('statuses/retweet/:id', { id: tweetList[randomRetweet] }, function(err, data, response) {
-            console.log('Random retweet executed');
+            if (err) {
+                console.error("Couldn't send retweet: ", err);
+            } else {
+                console.log('Random retweet sent');
+            }
         });
 
     });
