@@ -25,19 +25,21 @@ later.setInterval(function() {
 
 
 // Send out daily promo tweet
-var promoSchedule = later.parse.text('at 6:00 pm');
+var promoSchedule = later.parse.text('at 06:00 pm');
 later.setInterval(function() {
 
-    var promos = require('../../content/promos');
-    var promoNumber =  Math.floor(Math.random() * (promos.length - 1) + 1);
+    console.log('promo tweet');
 
-    twit.post('statuses/update', { status: promos[promoNumber] }, function(err, data, response) {
-        if (err) {
-            console.error("Couldn't send promo tweet: ", err);
-        } else {
-            console.log('Daily promo tweet sent.');
-        }
-    });
+//    var promos = require('../../content/promos');
+//    var promoNumber =  Math.floor(Math.random() * (promos.length - 1)) + 1;
+//
+//    twit.post('statuses/update', { status: promos[promoNumber] }, function(err, data, response) {
+//        if (err) {
+//            console.error("Couldn't send promo tweet: ", err);
+//        } else {
+//            console.log('Daily promo tweet sent.');
+//        }
+//    });
 
 }, promoSchedule);
 

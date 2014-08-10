@@ -7,3 +7,4 @@ var db = require('./mongo');
 var twit = require('./twitter').twitter;
 
 //update
+var fb = require('./facebook');
