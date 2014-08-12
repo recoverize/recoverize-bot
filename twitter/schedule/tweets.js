@@ -30,16 +30,16 @@ later.setInterval(function() {
 
     console.log('promo tweet');
 
-//    var promos = require('../../content/promos');
-//    var promoNumber =  Math.floor(Math.random() * (promos.length - 1)) + 1;
-//
-//    twit.post('statuses/update', { status: promos[promoNumber] }, function(err, data, response) {
-//        if (err) {
-//            console.error("Couldn't send promo tweet: ", err);
-//        } else {
-//            console.log('Daily promo tweet sent.');
-//        }
-//    });
+    var promos = require('../../content/promos');
+    var promoNumber =  Math.floor(Math.random() * (promos.length - 1) + 1);
+
+    twit.post('statuses/update', { status: promos[promoNumber] }, function(err, data, response) {
+        if (err) {
+            console.error("Couldn't send promo tweet: ", err);
+        } else {
+            console.log('Daily promo tweet sent.');
+        }
+    });
 
 }, promoSchedule);
 
