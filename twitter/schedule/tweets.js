@@ -33,6 +33,8 @@ later.setInterval(function() {
     var promos = require('../../content/promos');
     var promoNumber =  Math.floor(Math.random() * (promos.length - 1) + 1);
 
+    console.log(promos[promoNumber]);
+
     twit.post('statuses/update', { status: promos[promoNumber] }, function(err, data, response) {
         if (err) {
             console.error("Couldn't send promo tweet: ", err);
