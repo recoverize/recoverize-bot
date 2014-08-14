@@ -25,14 +25,14 @@ later.setInterval(function() {
 
 
 // Send out daily promo tweet
-var promoSchedule = later.parse.text('at 06:00 pm');
+var promoSchedule = later.parse.text('at 6:00 pm');
 later.setInterval(function() {
 
-    console.log('promo tweet');
 
     var promos = require('../../content/promos');
     var promoNumber =  Math.floor(Math.random() * (promos.length - 1) + 1);
 
+    console.log(promoNumber);
     console.log(promos[promoNumber]);
 
     twit.post('statuses/update', { status: promos[promoNumber] }, function(err, data, response) {
