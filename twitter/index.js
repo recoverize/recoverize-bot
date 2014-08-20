@@ -15,7 +15,6 @@ var account = require('./events/account');
 // Load scheduled events
 var tweets = require('./schedule/tweets');
 
-
 // Do automated interactions
 var tags = ['#justfortoday', '#12steps', '#bigbook', '#dailyreflections', '#sobriety', '#xa', '#affirmation', '#nohangovers', '#another24', '#thenaway', '#aahumor', '#recoveryispossible'];
 
