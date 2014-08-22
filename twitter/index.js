@@ -21,4 +21,4 @@ var tags = ['#justfortoday', '#12steps', '#bigbook', '#dailyreflections', '#sobr
 var rt = require('./ai/retweet');
 
 var rtSchedule = later.parse.text('every 8 hours');
-later.setInterval(rt.retweet(tags), rtSchedule);
+later.setInterval(rt.retweet, rtSchedule, tags);
