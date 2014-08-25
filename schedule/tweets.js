@@ -1,7 +1,7 @@
 // Scheduled tweets
-var twit = require('../index').twitter;
+var twit = require('../twitter').twitter;
     later = require('later'),
-    twitterStats = require('../../models/twitter_stats');
+    twitterStats = require('../models/twitter_stats');
 
 
 // Send out #justfortoday tweet every morning
@@ -13,7 +13,7 @@ later.setInterval(function() {
             console.error("Error: " + err);
         }
 
-        var quotes = require('../../content/jftquotes');
+        var quotes = require('../content/jftquotes');
 
         twit.post('statuses/update', { status: quotes[stats.tweetDay] }, function(err, data, response) {
             console.log('#justfortoday tweet sent.');
@@ -29,7 +29,7 @@ var promoSchedule = later.parse.text('at 6:00 pm');
 later.setInterval(function() {
 
 
-    var promos = require('../../content/promos'),
+    var promos = require('../content/promos'),
         promoCount = Object.keys(promos).length;
     var promoNumber =  Math.floor(Math.random() * (promoCount - 1) + 1);
 
@@ -53,7 +53,7 @@ later.setInterval(function() {
             console.error("Error: " + err);
         }
 
-        var quotes = require('../../content/bbquotes');
+        var quotes = require('../content/bbquotes');
 
         twit.post('statuses/update', { status: quotes[stats.tweetDay] }, function(err, data, response) {
             console.log('Evening #bigbook tweet sent.');

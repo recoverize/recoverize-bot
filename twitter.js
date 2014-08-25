@@ -9,8 +9,7 @@ exports.twitter = new Twit({
 });
 
 // Called from index to monitor for events
-var account = require('./events/account');
-
+var account = require('./events/tw_account');
 
 // Load scheduled events
 var tweets = require('./schedule/tweets');

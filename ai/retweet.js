@@ -3,7 +3,7 @@
 // get an array of possible tweets and retweet a random one
 // make sure they don't have a lot of followers
 
-var twit = require('../index').twitter;
+var twit = require('../twitter').twitter;
 
 exports.retweet = function(hashtags) {
 

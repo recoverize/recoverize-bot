@@ -1,6 +1,6 @@
-var twit = require('../index').twitter,
-    twitterStats = require('../../models/twitter_stats'),
-    twitterFollower = require('../../models/twitter_follower');
+var twit = require('../twitter').twitter,
+    twitterStats = require('../models/twitter_stats'),
+    twitterFollower = require('../models/twitter_follower');
 
 var me = twit.stream('user', { track: '@recoverize', language: 'en' });
 

@@ -1,4 +1,5 @@
 var FB = require('fb');
+var Step = require('step');
 var request = require('request');
 //http://runnable.com/UTlPM1-f2W1TAABY/post-on-facebook
 //
