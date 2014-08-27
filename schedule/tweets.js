@@ -28,7 +28,6 @@ later.setInterval(function() {
 var promoSchedule = later.parse.text('at 6:00 pm');
 later.setInterval(function() {
 
-
     var promos = require('../content/promos'),
         promoCount = Object.keys(promos).length;
     var promoNumber =  Math.floor(Math.random() * (promoCount - 1) + 1);
@@ -43,6 +42,23 @@ later.setInterval(function() {
 
 }, promoSchedule);
 
+
+// Send out slogan tweet
+var sloganSchedule = later.parse.text('at 2:00 am');
+later.setInterval(function() {
+
+    var slogans = require('../content/slogans'),
+        sloganCount = Object.keys(slogans).length;
+    var sloganNumber = Math.floor(Math.random() * (sloganCount - 1) + 1);
+
+    twit.post('statuses/update', { status: slogans[sloganNumber] }, function(err, data, response) {
+        if (err) {
+            console.error("Couldn't send slogan tweet: ", err);
+        } else {
+            console.log('Daily slogan tweet sent.');
+        }
+    });
+}, sloganSchedule);
 
 // Send out #bigbook tweet every evening
 var bbqSchedule = later.parse.text('at 11:30 pm');
