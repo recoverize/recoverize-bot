@@ -25,22 +25,22 @@ later.setInterval(function() {
 
 
 // Send out daily promo tweet
-var promoSchedule = later.parse.text('at 6:00 pm');
-later.setInterval(function() {
-
-    var promos = require('../content/promos'),
-        promoCount = Object.keys(promos).length;
-    var promoNumber =  Math.floor(Math.random() * (promoCount - 1) + 1);
-
-    twit.post('statuses/update', { status: promos[promoNumber] }, function(err, data, response) {
-        if (err) {
-            console.error("Couldn't send promo tweet: ", err);
-        } else {
-            console.log('Daily promo tweet sent.');
-        }
-    });
-
-}, promoSchedule);
+//var promoSchedule = later.parse.text('at 6:00 pm');
+//later.setInterval(function() {
+//
+//    var promos = require('../content/promos'),
+//        promoCount = Object.keys(promos).length;
+//    var promoNumber =  Math.floor(Math.random() * (promoCount - 1) + 1);
+//
+//    twit.post('statuses/update', { status: promos[promoNumber] }, function(err, data, response) {
+//        if (err) {
+//            console.error("Couldn't send promo tweet: ", err);
+//        } else {
+//            console.log('Daily promo tweet sent.');
+//        }
+//    });
+//
+//}, promoSchedule);
 
 
 // Send out slogan tweet
