@@ -15,7 +15,7 @@ var account = require('./events/tw_account');
 var tweets = require('./schedule/tweets');
 
 // Do automated interactions
-var tags = ['#justfortoday', '#12steps', '#bigbook', '#dailyreflections', '#sobriety', '#xa', '#affirmation', '#another24', '#thenaway', '#aahumor', '#recoveryispossible'];
+var tags = ['#justfortoday', '#12steps', '#bigbook', '#dailyreflections', '#sobriety', '#xa', '#affirmation', '#recoverytalk', '#another24', '#thenaway', '#aahumor', '#recoveryispossible'];
 
 var rt = require('./ai/retweet');
 
